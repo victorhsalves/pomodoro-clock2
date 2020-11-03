@@ -5,7 +5,7 @@ module.exports = {
 
         try {
             const token = req.headers.authorization.split(' ')[1];
-            const decode = jwt.verify(token, 'segredo');
+            const decode = jwt.verify(token, process.env.TOKEN_SECRET);
             req.user = decode;
             next();
         } catch (e) {
@@ -16,7 +16,7 @@ module.exports = {
 
         try {
             const token = req.headers.authorization.split(' ')[1];
-            const decode = jwt.verify(token, 'segredo');
+            const decode = jwt.verify(token, process.env.TOKEN_SECRET);
             req.user = decode;
             if(decode.level == 'administrator'){
                 next()

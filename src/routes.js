@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const SessionController = require('./controllers/SessionController')
+const UserController = require('./controllers/UserController');
 const TaskController = require('./controllers/TaskController')
 const LogController = require('./controllers/LogController')
 const FilesController = require('./controllers/FilesController')
@@ -13,6 +14,9 @@ const routes = Router();
 routes.post('/SignUp', SessionController.SignUp);
 routes.post('/Login', SessionController.Login);
 routes.post('/Logout', SessionController.Logout);
+
+// Users
+routes.post('/ChangePassword', session.User, UserController.ChangePassword, SessionController.UpdateSession);
 
 // Tasks
 routes.get('/ListTasks', TaskController.ListTasks);
