@@ -26,6 +26,7 @@ routes.delete('/RemoveTask/:id', session.Administrator,TaskController.RemoveTask
 
 // Log
 routes.post('/WriteLog',LogController.WriteLog);
+routes.get('/ListLogs/:taskId', session.Administrator, LogController.ListLogs);
 
 // Files
 routes.get('/ListFiles', FilesController.ListFiles);
